@@ -1,0 +1,42 @@
+export class service {
+
+private isUserLoggedIn;
+public username;
+
+constructor(){
+    this.isUserLoggedIn = false;
+
+}
+
+setUseLoggedIn(){
+    this.isUserLoggedIn = true ; 
+    this.username = 'admin';
+}
+
+getUserLoggedIn(){
+    return this.isUserLoggedIn;
+}
+
+}
+
+
+
+//AuthGuard
+export class AuthGuard imple..{
+
+construcotr(private router: Router){
+
+}
+
+canActivate(next: Ac.., state: Rou..){
+    return this.user.getUserLoggedIn();
+}
+}
+
+
+//routing
+{
+    path: 'dashboard',
+    canActivate: [AuthGuard],
+    component: [Appcomponent]
+}
